@@ -1,0 +1,50 @@
+.study-item-index   {grid-area: index;}
+.study-item-term    {grid-area: term; }
+.study-item-def     {grid-area: def;  }
+.study-item-cat     {grid-area: cat;  }
+.study-item-note    {grid-area: note; }
+.study-item-options {grid-area: opts; }
+
+
+.study-item {
+  font-size     : 1.1em;
+  border-radius : 21.37px;
+  height        : 50px;
+  margin        : auto;
+  margin-bottom : 10px;
+  max-width     : 1200px;
+  padding       : 3px;
+  vertical-align: middle;
+  
+
+  
+  display: grid;
+  grid-template-rows   : 1fr;
+  grid-template-columns: 70px 3fr 3fr 1fr 50px 1fr;
+  grid-template-areas  :
+      'index term def cat note opts';
+}
+
+
+.study-item-index  ,
+.study-item-term   ,
+.study-item-def    ,
+.study-item-cat    ,
+.study-item-note   ,
+.study-item-options {
+  align-items : center;
+  border-left : 2px solid $transparent-ghostwhite-15;
+  display     : flex;
+  padding     : 5px;
+  padding-left: 15px;
+  height      : 44px;
+}
+
+.study-item-index {
+  border-left: none !important;
+}
+
+.study-item-note {
+  padding: 0;
+  justify-content: center !important;
+}

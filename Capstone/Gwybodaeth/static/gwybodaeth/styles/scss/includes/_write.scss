@@ -1,0 +1,243 @@
+#write-container,
+#write-feedback-container,
+#write-summary-container  {grid-area: view;}
+
+#write-progress-container {grid-area: prog;}
+
+#write-wrapper {
+  grid-template-columns: 1fr;
+  grid-template-rows   : 350px 65px;
+  grid-template-areas  :
+  'view view'
+  'prog prog';
+}
+
+#write-progress-container {
+  border-top : 3px solid map-get($theme-colors, "lleuad");
+  padding-top: 20px;
+}
+
+
+/*******************************************************************************
+ *  #write-container elements
+ *  The block below is only meant to contain grid-area names for each element.
+ *  Note: keep the elements in order and keep the block clumped together.
+ */
+#write-question           { grid-area: quest; }
+#write-pass               { grid-area: pass;  }
+#write-answer-area        { grid-area: answer;}
+#write-answer-button      { grid-area: submit;}
+#write-category-container { grid-area: cat;   }
+#write-textarea-label     { grid-area: label; }
+#write-special-letters    { grid-area: spec;  }
+#write-progress-container { grid-area: prog;  }
+
+#write-container {
+  grid-template-columns: 3fr 3fr 2fr 2fr;
+  grid-template-rows   : 1fr 3fr 1fr 1fr 1fr;
+  grid-template-areas  : 
+      'quest  quest  quest  pass  '
+      'answer answer answer answer'
+      'label  .      cat    submit'
+      'spec   .      .      .     '
+      'prog   prog   prog   prog  ' 
+      ;
+}
+
+#write-question {
+  font-size: 1.5em;
+}
+
+#write-pass {
+  text-align: right;
+}
+
+#write-pass-button {
+  cursor       : pointer;
+  border-radius: 21.37px;;
+}
+
+
+#write-answer-area {
+  background   : transparent;
+  border-bottom: 3px solid map-get($theme-colors, "lleuad");  
+  border-radius: 0;
+  border-top   : 2px solid $transparent-ghostwhite-15;
+  font-size    : 1.5em;
+  height       : 100px;
+  padding-top  : 50px;
+  padding-left : 0;
+  padding-right: 0;
+  resize       : none;
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+
+#write-answer-button {
+  border-radius: 21.37px;
+  margin       : auto;
+  width        : 100%;
+}
+
+/*******************************************************************************
+ *  #write-progress-area elements
+ *  #write-progress-area is a grid container which itself is located in another grid container,
+ *     namely #write-progress-container (which is designed to hold 3 areas)
+ *  The block below is only meant to contain grid-area names for each element.
+ *  Note: keep the elements in order and keep the block clumped together.
+ */
+
+#progress-correct  ,     
+#progress-incorrect,   
+#progress-remaining      { grid-area: bar;}
+.progress-bar-label      { grid-area: lab;} 
+.progress-bar-counter    { grid-area: cnt;}
+
+#write-progress-container {
+  grid-template-columns: 1fr 1fr 1fr; 
+}
+
+.progress-area {
+  display    : grid;
+  width      : 100%;
+  height     : 100%;
+  grid-column: span 1;
+  grid-template-columns: subgrid;
+  grid-template-rows   : subgrid;
+  grid-template-areas  : 
+      'bar bar bar'
+      'lab .   cnt'
+      ;
+}
+
+.progress-bar-counter {
+  text-align: right;
+}
+
+
+/*******************************************************************************
+ *  #write-feedback-container elements
+ *  The block below is only meant to contain grid-area names for each element.
+ *  Note: keep the elements in order and keep the block clumped together.
+ */
+#write-feedback-value             {grid-area: value;}
+#write-feedback-question          {grid-area: quest;}
+#write-feedback-input-container   {grid-area: input;}
+#write-feedback-answers-container {grid-area: answs;}
+#write-feedback-continue          {grid-area: contn;}
+#write-feedback-retry             {grid-area: retry;}
+#write-feedback-override          {grid-area: overr;}
+
+#write-feedback-container { 
+  gap: 20px;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows   : 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas  : 
+    'value value'
+    'quest retry'
+    'input overr'
+    'answs answs'
+    'contn contn';
+}
+
+
+/**************************************************************************** */ 
+#write-summary-correct    {grid-area: good; }
+#write-summary-incorrect  {grid-area: bad;  }
+#write-summary-continue   {grid-area: cont; }
+#summary-rounds-wrapper   {grid-area: round;}
+
+
+#write-summary-container {
+  height    : 100%;
+  width     : 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows   : 60px 1fr;
+  grid-template-areas  :
+    'good  bad   cont '
+    'round round round';
+}
+
+
+#write-summary-incorrect {
+  text-align: center;
+}
+
+#write-summary-continue {
+  text-align: right;
+}
+
+#summary-continue-button {
+  width : 188px;
+  height: 38px;
+}
+
+
+#summary-rounds-wrapper::-webkit-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#summary-rounds-wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width   : none;  /* Firefox */
+}
+
+
+#summary-rounds-wrapper {
+  box-shadow: 0px 0px 5px map-get($theme-colors, "lleuad-lawn") inset;
+  display   : block;
+  max-height: 250px;
+  width     : 100%;
+  padding   : 10px;
+  overflow  : scroll;
+}
+
+
+
+
+.failure-user-input    {grid-area: input;}
+.failure-correct-value {grid-area: value;}
+
+.summary-failure-item {
+  display: grid;
+  width  : 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas  : 
+    'input value';
+}
+
+
+
+.summary-round-header    {grid-area: header; }
+.summary-input-label     {grid-area: input;  }
+.summary-answer-label    {grid-area: answer; }
+.summary-items-container {grid-area: items;  }
+
+
+.summary-round-container {
+  align-items   : center;
+  border-bottom : 1px solid map-get($theme-colors, "lleuad-lawn");
+  display       : grid;
+  margin-bottom : 15px;
+  padding-bottom: 15px;
+  width         : 100%;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows   : 60px 60px 1fr;
+  grid-template-areas  : 
+    'header .     '
+    'input  answer'
+    'items  items ';
+}
+
+.summary-items-container {
+  width: 100%;
+}
+
+
+

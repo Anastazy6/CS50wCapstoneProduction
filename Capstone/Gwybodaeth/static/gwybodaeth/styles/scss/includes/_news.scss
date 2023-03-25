@@ -1,0 +1,123 @@
+#news-header {
+  font-size : 2em;
+  text-align: center;
+  margin    : auto;
+}
+
+#news-form-header {grid-area: header;}
+#news-title-input {grid-area: title; }
+#news-body-input  {grid-area: body;  }
+#news-submit      {grid-area: submit;}
+
+#news-form {
+  border-radius: 21.37px;
+  margin       : auto;
+  max-width    : 800px;
+  padding      : 10px;
+
+
+  display: grid;
+  grid-template-columns: 5fr 2fr 5fr;
+  grid-template-rows   : 40px 80px 160px 40px;
+  grid-template-areas  :
+      'header header header'
+      'title  title  title '
+      'body   body   body  '
+      '.      submit .     ';
+}
+
+#news-form-header {
+  font-size: 1.35em;  
+  text-align: center;
+}
+
+#news-title-input {
+  padding-top: 35px;
+}
+
+#news-body-input {
+  padding-top: 115px;
+}
+
+.news-input {
+  background    : transparent;
+  border-bottom : 2px solid map-get($theme-colors, "lleuad");
+  border-radius : 0 !important;
+  display       : flex;
+  font-size     : 1.25em;
+  margin-bottom : 10px;
+  resize        : none;
+  outline       : none;
+  vertical-align: bottom;
+
+  &:focus, &:hover {
+    border-bottom: 2px solid map-get($theme-colors, "lleuad-lawn");
+  }
+
+  &:visited {
+    border-bottom : 2px solid map-get($theme-colors, "lleuad");
+  }
+}
+
+
+.news-input::-webkit-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.news-input {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width   : none;  /* Firefox */
+}
+
+
+#news-container {
+  display   : block;
+  margin    : auto;
+  margin-top: 40px;
+}
+
+
+.news-item-title  {grid-area: title; }
+.news-item-body   {grid-area: body;  }
+.news-item-time   {grid-area: time;  }
+.news-item-author {grid-area: author;}
+
+.news-item {
+  max-width    : 666px;
+  border-radius: 21.37px;
+  padding      : 15px;
+  margin       : auto;
+  margin-top   : 20px;
+  gap          : 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas  :
+    'title title '
+    'body  body  '
+    'time  author';
+}
+
+.news-item-title {
+  text-align   : center;
+  font-size    : 1.3em;
+  border-bottom: 2px solid map-get($theme-colors, "lleuad");
+
+}
+
+.news-item-body {
+  text-align   : justify;
+  border-bottom: 1  px solid map-get($theme-colors, "lleuad");
+}
+
+.news-item-time,
+.news-item-author {
+  font-size : 0.75em;
+  font-style: italic;
+}
+
+.news-item-author {
+  text-align: right;
+}

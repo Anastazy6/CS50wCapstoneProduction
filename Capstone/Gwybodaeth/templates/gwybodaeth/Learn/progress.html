@@ -1,0 +1,99 @@
+<div  id   ="learn-progress-container"
+      class="grid-progress-container">
+
+  <div  id   ="learn-progress-remaining-area"
+        class="learn-progress-grid-cell">
+
+    <div class="prog-row prog-row-top">
+      <div class="prog-row-left">
+        Remaining choices: 
+      </div>
+      <div id   ="learn-remaining-choices"
+            class="prog-row-right">
+        
+      </div>
+    </div>
+    
+    <div class="prog-row prog-row-bottom">
+      <div class="prog-row-left">
+        Remaining writes:
+      </div>
+      <div id   ="learn-remaining-writes"
+            class="prog-row-right">
+        
+      </div>
+    </div>
+
+  </div>
+
+  <div  id   ="learn-progress-bar-area"
+        class="learn-progress-grid-cell">
+    <div class="prog-row prog-row-top">
+      <div class="prog-row-full">
+        <div class="progress">
+        
+          <div  id   ="progress-bar-correct"
+                class= "progress-bar 
+                        bg-lleuad-lawn
+                        moonlight-full-small"
+                role ="progressbar"
+                style="width: 0%"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100">
+          </div>
+
+          <div  id   ="progress-bar-incorrect"
+                class="progress-bar bg-lleuad"
+                role ="progressbar"
+                style="width: 100%"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100">
+          </div>
+      
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-row-3 prog-row-bottom">
+      <div class="prog-row-left">
+        Total correct: 
+          <span id='total-correct'></span>
+      </div>
+
+      <div class="prog-row-mid">
+        <span id="correct-percentage"></span>%
+      </div>
+
+      <div class="prog-row-right">
+        Total wrong: 
+          <span id='total-wrong'></span>
+      </div>
+    </div>
+  </div>
+
+  <div  id   ="learn-progress-failures-area"
+        class="learn-progress-grid-cell">
+    <div class="prog-row prog-row-top">
+      <div class="prog-row-left">
+        Failed choices:
+      </div>
+      <div id   ="learn-failed-choices"
+            class="prog-row-right">
+        
+      </div>
+    </div>
+
+    <div class="prog-row prog-row-bottom">
+      <div class="prog-row-left">
+        Failed writes: 
+      </div>
+      <div id   ="learn-failed-writes"
+            class="prog-row-right">
+        
+      </div>
+    </div>
+
+  </div>
+</div>

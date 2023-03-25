@@ -1,0 +1,189 @@
+#learn-multiple-choice-container,
+#learn-writing-container,
+#learn-summary-container  {grid-area: view;}
+
+#learn-progress-container {grid-area: prog;}
+
+#learn-wrapper {
+  grid-template-rows   : 350px 70px;
+  grid-template-columns: 1fr;
+  grid-template-areas  :
+    'view'
+    'prog';
+}
+
+
+#lmc-term            {grid-area: term;}
+#lmc-category        {grid-area: cat; }
+#lmc-feedback        {grid-area: feed;}
+#lmc-answers         {grid-area: answ;}
+#lmc-continue-button {grid-area: next;}
+
+#learn-multiple-choice-container {
+  width: 100%;
+  grid-template-rows   : 90px 40px 125px 50px;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas  :
+    'term cat '
+    'feed feed'
+    'answ answ'
+    'next next';
+}
+
+#lmc-term,
+#lmc-category {
+  font-size: 2em;
+}
+
+#lmc-category {
+  text-align: right;
+}
+
+#lmc-feedback {
+  border-bottom: 2px solid $transparent-ghostwhite-15;
+  margin-bottom: 5px;
+  text-align   : center;
+}
+
+#lmc-answer-A {grid-area: ansA;}
+#lmc-answer-B {grid-area: ansB;}
+#lmc-answer-C {grid-area: ansC;}
+#lmc-answer-D {grid-area: ansD;}
+
+#lmc-answers {
+  background         : transparent;
+  display            : grid;
+  gap                : 7px;
+  width              : 100%; 
+  //list-style-position: inside;
+  list-style-type    : none;
+  padding            : 0;
+  grid-template-columns: subgrid;
+  grid-template-rows   : 1fr 1fr;
+  grid-template-areas  :
+    'ansA ansB'
+    'ansC ansD';
+}
+
+.lmc-answer {
+  align-items  : center;
+  background   : $background-color;
+  border-radius: 0;
+  cursor       : pointer;
+  display      : block;
+  height       : 50px;
+  padding      : 13px 15px;
+  text-align   : left;
+  width        : 100%;
+
+  &:hover {
+    box-shadow: 0 0 15px map-get($theme-colors, "lleuad") inset;
+  }
+}
+
+
+#lmc-answer-A::before {content: "1) ";}
+#lmc-answer-B::before {content: "2) ";}
+#lmc-answer-C::before {content: "3) ";}
+#lmc-answer-D::before {content: "4) ";}
+
+
+#learn-progress-remaining-area {grid-area: left;}
+#learn-progress-bar-area       {grid-area: prog;}
+#learn-progress-failures-area  {grid-area: fail;}
+
+#learn-progress-container {
+  border-top : 3px solid map-get($theme-colors, 'lleuad');
+  padding-top: 10px;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows   : 1fr;
+  grid-template-areas  :
+    'left prog fail';
+}
+
+
+.prog-row-left  {grid-area: left; }
+.prog-row-right {grid-area: right;}
+.prog-row-full  {grid-area: left / left / left / right;}
+
+.prog-row-full {
+  align-items: center;
+  padding-top: 12px;
+  height     : 100%;
+  display    : flex;
+}
+
+.prog-row {
+  display: grid;
+  grid-template-rows   : 0; // somehow it works...
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas  :
+  'left rigth';
+}
+
+
+.prog-row-3 {
+  display: grid;
+  grid-template-rows   : 0; // somehow it works...
+  grid-template-columns: 3fr 2fr 3fr;
+  grid-template-areas  :
+  'left mid rigth';
+}
+
+.prog-row-right {
+  justify-content: right;
+}
+
+.prog-row-mid {
+  justify-content: center;
+}
+
+.prog-row-top    {grid-area: top;   }
+.prog-row-bottom {grid-area: bottom;}
+.prog-row-mid    {grid-area: mid;   }
+
+
+#correct-percentage {
+  padding-left: 25px;
+}
+
+
+.learn-progress-grid-cell {
+  display: grid;
+  grid-template-rows   : 1fr 1fr;
+  grid-template-columns: subgrid;
+  grid-template-areas  :
+    'top'
+    'bottom';
+}
+
+.lmc-answer-clicked-correct,
+.lmc-answer-clicked-correct:hover {
+  box-shadow: 0 0 15px map-get($theme-colors, "success") inset;
+}
+
+.lmc-answer-clicked-wrong,
+.lmc-answer-clicked-wrong:hover {
+  box-shadow: 0 0 15px map-get($theme-colors, "danger") inset;
+}
+
+#lmc-continue-button:disabled {
+  opacity: 0.3;
+
+  &:hover {
+    color: $background-color;
+    opacity: 0.3;
+    box-shadow: none;
+  }
+  
+}
+
+#lmc-continue-button {
+  max-height: 38px;
+}
+
+#learn-progress-bar-area {
+  border-left : 2px solid $transparent-ghostwhite-15;
+  border-right: 2px solid $transparent-ghostwhite-15;
+  padding     : 0 20px;
+}

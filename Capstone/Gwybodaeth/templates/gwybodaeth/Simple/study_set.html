@@ -1,0 +1,64 @@
+{% extends "gwybodaeth/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+  {{ study_set.title }}
+{% endblock %}
+
+{% block body %}
+
+  {% include "gwybodaeth/includable/study_set_header.html"      %}
+  {% include "gwybodaeth/includable/study_set_description.html" %}
+  {% include "gwybodaeth/includable/learning_options.html"      %}
+
+  <div  id   ="study-items"
+        class="study-items"
+
+        data-ng-app       ="studySet"
+        data-ng-controller="studySetController">
+
+    <!-- Generated with JavaScript -->
+    <!-- experimental -->
+    <div  class         ="study-item
+                          bg-moon-glass"
+          data-ng-repeat="term in terms">
+
+      <div  class       ="study-item-index"
+            data-ng-bind="term.id">
+      </div>
+      
+      <div  class       ="study-item-term"
+            data-ng-bind="term.term">
+      </div>
+      
+      <div  class       ="study-item-def"
+            data-ng-bind="term.def">
+      </div>
+      
+      <div  class       ="study-item-cat"
+            data-ng-bind="term.cat">
+      </div>
+
+      <div  title="{[{term.note}]}"
+            class  ="study-item-note">
+        <span>&#128220</span>
+      </div>
+
+      <div class="study-item-options">
+        TODO
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+<script type='module'
+        src="{% static 'gwybodaeth/scripts/modules/StudySet/studySetAngular.js' %}"></script>
+
+  
+{% endblock %}
