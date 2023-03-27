@@ -1,7 +1,7 @@
-import  { Choice   }  from  "./choice.mjs"
-import  { Progress }  from  "./progress.mjs"
-import  { Writing  }  from  "./writing.mjs"
-import  { Summary  }  from  "./summary.mjs"
+import  { Choice   }  from  "./choice.js"
+import  { Progress }  from  "./progress.js"
+import  { Writing  }  from  "./writing.js"
+import  { Summary  }  from  "./summary.js"
 
 /**
  * Separates subviews for namespacing purposes.

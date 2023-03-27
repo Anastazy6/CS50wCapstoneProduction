@@ -7,10 +7,10 @@
  */
 
 
-import  { Create     }  from  "./modules/Create/create.mjs";
-import  { Flashcards }  from  "./modules/Flashcards/flashcards.mjs";
-import  { Learn      }  from  "./modules/Learn/learn.mjs";
-import  { Load       }  from  "./modules/Load/load.mjs";
+import  { Create     }  from  "./modules/Create/create.js";
+import  { Flashcards }  from  "./modules/Flashcards/flashcards.js";
+import  { Learn      }  from  "./modules/Learn/learn.js";
+import  { Load       }  from  "./modules/Load/load.js";
 import  { Write      }  from  "./modules/Write/write.js";
 import  { Util       }  from  "./modules/Utilities/util.js";
 

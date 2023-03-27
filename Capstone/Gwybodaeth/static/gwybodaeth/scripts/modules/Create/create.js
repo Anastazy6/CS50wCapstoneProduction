@@ -1,6 +1,6 @@
-import { Memory           } from "./Memory/Memory.mjs";
-import { View             } from "./View/View.mjs";
-import { StudyItemCreator } from "./Models/study_item_creator.mjs";
+import { Memory           } from "./Memory/Memory.js";
+import { View             } from "./View/View.js";
+import { StudyItemCreator } from "./Models/study_item_creator.js";
 
 
 export const Create = (function() {

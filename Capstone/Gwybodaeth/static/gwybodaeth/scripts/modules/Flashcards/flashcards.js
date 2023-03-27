@@ -1,6 +1,6 @@
-import { Memory    } from "./Memory/memory.mjs";
-import { View      } from "./Views/view.mjs";
-import { Flashcard } from "./Models/flashcard.mjs";
+import { Memory    } from "./Memory/memory.js";
+import { View      } from "./Views/view.js";
+import { Flashcard } from "./Models/flashcard.js";
 
 
 export const Flashcards = (function(){
