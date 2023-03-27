@@ -1,7 +1,7 @@
-import { Write    } from "./Write.mjs";
-import { Feedback } from "./Feedback.mjs";
-import { Progress } from "./Progress.mjs";
-import { Summary  } from "./summary.mjs";
+import { Write    } from "./Write.js";
+import { Feedback } from "./Feedback.js";
+import { Progress } from "./Progress.js";
+import { Summary  } from "./Summary.js";
 
 /**
    *  Contains references to the visible HTML elements and methods of displaying/updating them.

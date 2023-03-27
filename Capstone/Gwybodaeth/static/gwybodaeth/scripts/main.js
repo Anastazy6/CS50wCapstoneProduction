@@ -11,8 +11,8 @@ import  { Create     }  from  "./modules/Create/create.mjs";
 import  { Flashcards }  from  "./modules/Flashcards/flashcards.mjs";
 import  { Learn      }  from  "./modules/Learn/learn.mjs";
 import  { Load       }  from  "./modules/Load/load.mjs";
-import  { Write      }  from  "./modules/Write/write.mjs";
-import  { Util       }  from  "./modules/Utilities/util.mjs";
+import  { Write      }  from  "./modules/Write/write.js";
+import  { Util       }  from  "./modules/Utilities/util.js";
 
 
 document.addEventListener("DOMContentLoaded", function() {

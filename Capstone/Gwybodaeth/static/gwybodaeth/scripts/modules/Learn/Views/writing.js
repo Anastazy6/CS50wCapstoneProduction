@@ -1,5 +1,5 @@
-import { Write    } from "../../Write/Views/Write.mjs";
-import { Feedback } from "../../Write/Views/Feedback.mjs";
+import { Write    } from "../../Write/Views/Write.js";
+import { Feedback } from "../../Write/Views/Feedback.js";
 
 export const Writing = (function() {
   const container = document.getElementById("learn-writing-container");
