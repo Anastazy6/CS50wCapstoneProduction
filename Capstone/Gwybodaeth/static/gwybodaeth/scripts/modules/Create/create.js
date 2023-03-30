@@ -1,7 +1,7 @@
 import { Memory           } from "./Memory/Memory.js";
 import { View             } from "./View/View.js";
 import { StudyItemCreator } from "./Models/study_item_creator.js";
-
+import { Util             } from "../Utilities/util.js";
 
 export const Create = (function() {
   
@@ -9,11 +9,7 @@ export const Create = (function() {
   //        Public
   // ---------------------
 
-  
-
   const createStudySet = () => {
-    
-
     fetch('/create-set', {
       method: 'POST',
       headers: {
@@ -22,24 +18,24 @@ export const Create = (function() {
       },
       body: _generatePostBody()
     })
-    return true;
+    .then(response => response.json())
+    .then(result => {
+      Util.redirect(result['set-url']);
+    })
+    return false;
   }
 
 
   const _generatePostBody = () => {
     let data = View.getStudySetInfo();
 
-    let body = JSON.stringify({
+    return JSON.stringify({
         "title"       : data.title,
         "description" : data.description,
         "terms-lang"  : data.termsLang,
         "defs-lang"   : data.defsLang,
         "terms"       : _getNewStudySetData()
-    })
-
-    console.log(body);
-    
-    return body;
+    });
   }
 
 
@@ -89,8 +85,6 @@ export const Create = (function() {
     _addStudyItem();
     View.focusLastItem();
   }
-
-  
 
 
   return {
