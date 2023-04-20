@@ -14,6 +14,10 @@ from .util   import *
 DEBUG = False
 ################################################################################
 
+# View for testing and experimentation purposes. REMOVE FOR PRODUCTION etc...
+def test_view(request):
+    return render(request, "gwybodaeth/Simple/test_page.html")
+
 
 def index(request):
     require_method(request, ['GET', 'POST'])
@@ -43,39 +47,47 @@ def index(request):
     
 
 
-def create_set(request):
+def create_set_post(request):
+    '''
+    Creates a new Study Set from the data sent with Create module's form (POST method).
+    This is exactly the same for both Vanilla JS Create and Angular Create.
+    '''
+    require_login(request, "Log in to create study sets!")
+    
+    try:    
+        data = json.loads(request.body)
+
+        new_set = Study_set(
+            author      = request.user,
+            title       = data['title'],
+            description = data['description'],
+            terms_lang  = data['terms-lang'],
+            defs_lang   = data['defs-lang'],
+            terms       = data['terms']
+        )
+
+        new_set.save()
+    
+        return JsonResponse({
+            "message": "Study set created successfully!",
+            "set-url":  str(reverse("study-set-view", args=(new_set.id,)))
+        },   status  =  200)
+    
+    except Exception as error:
+        return JsonResponse({
+            "message": "Something went wrong...",
+            "error"  :  str(error)
+        },   status  =  418
+    )
+
+
+def create_set_vanilla_js(request):
     # TODO: Expand this feature: 
     #   B) allow the user to edit their study sets. This will require python and possibly JS.
     require_method(request, ['GET', 'POST'])
 
     if request.method == 'POST':
-        require_login(request, "Log in to create study sets!")
-        
-        try:    
-            data = json.loads(request.body)
-
-            new_set = Study_set(
-                author      = request.user,
-                title       = data['title'],
-                description = data['description'],
-                terms_lang  = data['terms-lang'],
-                defs_lang   = data['defs-lang'],
-                terms       = data['terms']
-            )
-
-            new_set.save()
-        
-            return JsonResponse({
-                "message": "Study set created successfully!",
-                "set-url":  str(reverse("study-set-view", args=(new_set.id,)))
-            },   status  =  200)
-        
-        except Exception as error:
-            return JsonResponse({
-                "message": "Something went wrong...",
-                "error"  :  str(error)
-            },   status  =  418
-        )
+        create_set_post(request)
 
     else:
         return render(request, "gwybodaeth/Create/create_set.html", {
@@ -83,6 +95,20 @@ def create_set(request):
             'debug': DEBUG
         })
 
+
+def create_set_react(request):
+    # TODO: Develop Create view using React
+    require_method(request, ['GET', 'POST'])
+
+    if request.method == 'POST':
+        create_set_post(request)
+
+    else:
+        return render(request, "gwybodaeth/CreateReact/create_set_react.html", {
+            'range': range(0),
+            'debug': DEBUG
+        })
+    
 
 
 def user_sets(request, username):
@@ -105,6 +131,7 @@ def study_set_view(request, study_set_id):
     require_method(request, 'GET')
 
     study_set = require_study_set(request, study_set_id)
+    
 
     return render(request, "gwybodaeth/Simple/study_set.html", {
         "study_set": study_set,
